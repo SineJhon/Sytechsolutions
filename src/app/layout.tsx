@@ -4,6 +4,7 @@ import { SmoothScroll } from '@/components/shared/SmoothScroll'
 import { FloatingContact } from '@/components/shared/FloatingContact'
 import AiAssistant from '@/components/shared/AiAssistant'
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import './globals.css'
 
@@ -57,6 +58,7 @@ export default function RootLayout({
           <AiAssistant />
         </SmoothScroll>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
