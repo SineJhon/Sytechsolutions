@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1852E8"/>
+      <stop offset="100%" stop-color="#00D4AA"/>
+    </linearGradient>
+  </defs>
+  <text x="0" y="40" font-family="system-ui, sans-serif" font-weight="700" font-size="28" fill="#0A0D1A">SY</text>
+  <text x="48" y="40" font-family="system-ui, sans-serif" font-weight="300" font-size="22" fill="#5C6680">tech</text>
+  <text x="0" y="60" font-family="system-ui, sans-serif" font-weight="400" font-size="10" fill="#5C6680" letter-spacing="4">SOLUTIONS</text>
+</svg>

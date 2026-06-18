@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none">
+  <path d="M20 8L32 16V32L20 40L8 32V16Z" stroke="#EC4899" stroke-width="2" fill="#EC4899" opacity="0.08"/>
+  <path d="M20 16L26 20V28L20 32L14 28V20Z" fill="#EC4899" opacity="0.2"/>
+  <text x="44" y="30" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#94A3B8">HexaLabs</text>
+</svg>

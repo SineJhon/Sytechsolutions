@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none">
+  <path d="M8 32L20 8L32 32" stroke="#6366F1" stroke-width="2" fill="#6366F1" opacity="0.08" stroke-linejoin="round"/>
+  <line x1="13" y1="24" x2="27" y2="24" stroke="#6366F1" stroke-width="2" opacity="0.3"/>
+  <text x="44" y="30" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#94A3B8">ApexPeak</text>
+</svg>
