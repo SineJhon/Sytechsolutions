@@ -56,6 +56,7 @@ export default function RootLayout({
           />
           <AiAssistant />
         </SmoothScroll>
+        <Analytics />
       </body>
     </html>
   )
