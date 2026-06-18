@@ -3,6 +3,7 @@ import { CustomCursor } from '@/components/shared/CustomCursor'
 import { SmoothScroll } from '@/components/shared/SmoothScroll'
 import { FloatingContact } from '@/components/shared/FloatingContact'
 import AiAssistant from '@/components/shared/AiAssistant'
+import { Analytics } from "@vercel/analytics/next"
 import type { Metadata } from 'next'
 import './globals.css'
 
