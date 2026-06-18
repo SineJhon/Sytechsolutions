@@ -53,7 +53,7 @@ export default function RootLayout({
           {children}
           <FloatingContact
             telegramUsername={process.env.NEXT_PUBLIC_TELEGRAM_USERNAME!}
-            whatsappNumber={process.env.NEXT_PUBLIC_WHATSAPP_NUMBER!}
+            phoneNumber={process.env.NEXT_PUBLIC_PHONE_NUMBER!}
           />
           <AiAssistant />
         </SmoothScroll>

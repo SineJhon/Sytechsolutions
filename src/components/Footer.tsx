@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ExternalLink, Camera, MessageCircle, Send, Heart } from 'lucide-react'
+import { Globe, Camera, Phone, Send, Heart } from 'lucide-react'
 
 const services = [
   { label: 'Website Development', href: '#services' },
@@ -17,8 +17,8 @@ const company = [
 ]
 
 const socials = [
-  { icon: ExternalLink, href: '#', label: 'Website' },
-  { icon: MessageCircle, href: 'https://wa.me/251936913118', target: '_blank', label: 'WhatsApp' },
+  { icon: Globe, href: '#', label: 'Website' },
+  { icon: Phone, href: 'tel:+251936913118', target: '_blank', label: 'Phone' },
   { icon: Send, href: 'https://t.me/SineJhon', target: '_blank', label: 'Telegram' },
 ]
 

@@ -66,21 +66,21 @@ export default function Hero() {
         <motion.div
           animate={{ y: [-8, 8, -8], rotate: [0, 5, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-[15%] right-[8%] w-24 h-24 rounded-full border border-accent/10 opacity-30 pointer-events-none z-0"
+          className="absolute top-[10%] right-[5%] sm:top-[15%] sm:right-[8%] w-16 h-16 sm:w-24 sm:h-24 rounded-full border border-accent/10 opacity-30 pointer-events-none z-0"
         />
         <motion.div
           animate={{ y: [6, -6, 6], rotate: [0, -5, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-          className="absolute bottom-[20%] left-[5%] w-16 h-16 rounded-full border border-cyan/10 opacity-20 pointer-events-none z-0"
+          className="absolute bottom-[15%] left-[3%] sm:bottom-[20%] sm:left-[5%] w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-cyan/10 opacity-20 pointer-events-none z-0"
         />
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-          className="absolute top-[40%] left-[12%] w-32 h-32 rounded-full bg-accent/5 blur-3xl pointer-events-none z-0"
+          className="absolute top-[35%] left-[8%] sm:top-[40%] sm:left-[12%] w-20 h-20 sm:w-32 sm:h-32 rounded-full bg-accent/5 blur-3xl pointer-events-none z-0"
         />
 
         {/* Content */}
-        <div className="relative z-10 max-w-[900px] mx-auto px-5 sm:px-6 pt-24 sm:pt-32 pb-12 sm:pb-16 text-center">
+        <div className="relative z-10 max-w-[400px] sm:max-w-[560px] md:max-w-[700px] lg:max-w-[900px] mx-auto px-5 sm:px-6 pt-24 sm:pt-32 pb-12 sm:pb-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

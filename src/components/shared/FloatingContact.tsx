@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageCircle, Phone, Bot } from 'lucide-react'
+import { Send, Phone, Bot } from 'lucide-react'
 import {
   Tooltip,
   TooltipContent,
@@ -11,10 +11,10 @@ import {
 
 interface FloatingContactProps {
   telegramUsername: string
-  whatsappNumber: string
+  phoneNumber: string
 }
 
-export function FloatingContact({ telegramUsername, whatsappNumber }: FloatingContactProps) {
+export function FloatingContact({ telegramUsername, phoneNumber }: FloatingContactProps) {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export function FloatingContact({ telegramUsername, whatsappNumber }: FloatingCo
                   rel="noopener noreferrer"
                   className="w-11 h-11 rounded-full bg-[#2CA5E0] flex items-center justify-center hover:scale-110 transition-transform"
                 >
-                  <MessageCircle className="w-5 h-5 text-white" />
+                  <Send className="w-5 h-5 text-white" />
                 </a>
               </TooltipTrigger>
               <TooltipContent side="left">
@@ -75,7 +75,7 @@ export function FloatingContact({ telegramUsername, whatsappNumber }: FloatingCo
             <Tooltip>
               <TooltipTrigger asChild>
                 <a
-                  href="https://wa.me/251936913118"
+                  href={`tel:${phoneNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-11 h-11 rounded-full bg-[#25D366] flex items-center justify-center hover:scale-110 transition-transform"
@@ -84,7 +84,7 @@ export function FloatingContact({ telegramUsername, whatsappNumber }: FloatingCo
                 </a>
               </TooltipTrigger>
               <TooltipContent side="left">
-                <p>WhatsApp</p>
+                <p>Phone</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

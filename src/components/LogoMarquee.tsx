@@ -27,13 +27,13 @@ export default function LogoMarquee() {
       {/* Marquee container with fade edges */}
       <div className="relative overflow-hidden">
         {/* Left fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-r from-[var(--color-deep-base)] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 md:w-28 bg-gradient-to-r from-[var(--color-deep-base)] to-transparent z-10 pointer-events-none" />
         {/* Right fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-l from-[var(--color-deep-base)] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 md:w-28 bg-gradient-to-l from-[var(--color-deep-base)] to-transparent z-10 pointer-events-none" />
 
         {/* Marquee track */}
         <motion.div
-          className="flex items-center gap-10 md:gap-14"
+          className="flex items-center gap-8 sm:gap-10 md:gap-14"
           animate={{ x: ['0%', '-50%'] }}
           transition={{
             x: {
@@ -47,12 +47,12 @@ export default function LogoMarquee() {
           {doubledLogos.map((logo, index) => (
             <div
               key={`${logo.alt}-${index}`}
-              className="flex flex-col items-center justify-center shrink-0 w-[160px] md:w-[200px] opacity-70 hover:opacity-100 transition-opacity duration-500"
+              className="flex flex-col items-center justify-center shrink-0 w-[180px] sm:w-[200px] md:w-[220px] opacity-70 hover:opacity-100 transition-opacity duration-500"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] object-contain"
+                className="w-[90px] h-[90px] sm:w-[100px] sm:h-[100px] md:w-[110px] md:h-[110px] object-contain"
                 loading="lazy"
               />
               <span className="mt-2 text-[12px] md:text-[14px] font-semibold text-text-secondary tracking-wide">

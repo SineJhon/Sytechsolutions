@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ArrowUp, Mic, MicOff, Handshake, MessageCircle, Send, Bot, Cpu, ChevronDown } from 'lucide-react'
+import { X, ArrowUp, Mic, MicOff, Handshake, MessageCircle, Send, Bot, Cpu, ChevronDown, Phone } from 'lucide-react'
 import { SUGGESTED_QUESTIONS, AVAILABLE_MODELS, ModelConfig } from '@/constants/ai-knowledge-enhanced'
 
 interface Message {
@@ -12,7 +12,7 @@ interface Message {
 }
 
 interface HandoffInfo {
-  platform: 'telegram' | 'whatsapp'
+  platform: 'telegram' | 'phone'
 }
 
 // ─── Typing Indicator ─────
@@ -37,12 +37,12 @@ function TypingIndicator() {
 }
 
 // ─── Handoff Card ───
-function HandoffCard({ platform }: { platform: 'telegram' | 'whatsapp' }) {
-  const buildLink = (p: 'telegram' | 'whatsapp') => {
+function HandoffCard({ platform }: { platform: 'telegram' | 'phone' }) {
+  const buildLink = (p: 'telegram' | 'phone') => {
     const text = `Hi SY Tech! I was chatting with your AI assistant and need help with my project. Can you assist?`
     return p === 'telegram'
       ? `https://t.me/SineJhon?text=${encodeURIComponent(text)}`
-      : `https://wa.me/251936913118?text=${encodeURIComponent(text)}`
+      : `tel:+251936913118`
   }
 
   return (
@@ -56,8 +56,8 @@ function HandoffCard({ platform }: { platform: 'telegram' | 'whatsapp' }) {
         <a href={buildLink('telegram')} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-[13px] border border-blue-400/30 bg-blue-500/20 text-blue-300 hover:bg-blue-500/40 transition-colors">
           <Send className="w-3.5 h-3.5" /> Telegram
         </a>
-        <a href={buildLink('whatsapp')} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-[13px] border border-emerald-400/30 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/40 transition-colors">
-          <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
+        <a href={buildLink('phone')} className="flex-1 flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-[13px] border border-emerald-400/30 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/40 transition-colors">
+          <Phone className="w-3.5 h-3.5" /> Phone
         </a>
       </div>
     </div>
@@ -155,8 +155,8 @@ export default function AiAssistant() {
     const navMatch = reply.match(/\[NAVIGATE:(#[\w-]+)\]/)
     if (navMatch) setTimeout(() => { const el = document.querySelector(navMatch[1]); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }) }, 400)
     if (reply.includes('[OPEN_FORM]')) setTimeout(() => { window.dispatchEvent(new CustomEvent('open-contact-form')) }, 400)
-    if (reply.includes('[HANDOFF:telegram]') || reply.includes('[HANDOFF:whatsapp]')) {
-      setHandoff({ platform: reply.includes('[HANDOFF:telegram]') ? 'telegram' : 'whatsapp' })
+    if (reply.includes('[HANDOFF:telegram]') || reply.includes('[HANDOFF:phone]')) {
+      setHandoff({ platform: reply.includes('[HANDOFF:telegram]') ? 'telegram' : 'phone' })
     }
     setMessages(prev => [...prev, { id: crypto.randomUUID(), role: 'assistant', content: cleanReply, timestamp: new Date() }])
   }, [])

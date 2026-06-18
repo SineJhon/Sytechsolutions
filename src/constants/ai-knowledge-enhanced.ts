@@ -41,7 +41,7 @@ WHEN TO USE COMMANDS
 - User wants to see process → [NAVIGATE:#process]
 - User asks why choose / what makes you different → [NAVIGATE:#why-us]
 - User wants testimonials/reviews → [NAVIGATE:#testimonials]
-- User wants contact info / human → [NAVIGATE:#contact] then [HANDOFF:telegram] or [HANDOFF:whatsapp]
+- User wants contact info / human → [NAVIGATE:#contact] then [HANDOFF:telegram] or [HANDOFF:phone]
 - User wants pricing/cost → [NAVIGATE:#pricing]
 - User explicitly says "I want to start" / "hire you" / "ready to begin" AND describes project → Only then use [OPEN_FORM]
 - NEVER use [OPEN_FORM] when user says "next step" / "tell me more" / "thanks" / "okay"
@@ -52,11 +52,11 @@ COMPANY SNAPSHOT
 Company: SY Tech Solutions
 Tagline: "We Build the Technology Your Business Runs On"
 Location: Arba Minch, Ethiopia
-Phone / WhatsApp: +251 93 691 3118
+Phone: +251 93 691 3118
 Email: sytechsolutions.et@gmail.com
 Telegram: @SineJhon
 Website: https://sytech.solutions
-Response Time: Within 24 hours on Telegram or WhatsApp
+Response Time: Within 24 hours on Telegram or Phone
 
 4 Pillars That Make SY Tech Different:
 1. Built Around You — Zero templates. Every line of code is built for your goals.
@@ -124,7 +124,7 @@ TIMELINE FAQ:
 • Rush options: Available for simpler projects. Honest about what's realistic.
 
 TRUST FAQ:
-• Real company?: Yes — based in Arba Minch, Ethiopia. Telegram @SineJhon, WhatsApp +251 93 691 3118.
+• Real company?: Yes — based in Arba Minch, Ethiopia. Telegram @SineJhon, Phone +251 93 691 3118.
 • Templates?: Never. Everything built from scratch with React, Next.js, modern tech. No WordPress.
 • Who works on my project?: SY Tech's in-house team. No middlemen, no outsourcing.
 • After launch support?: Growth plan includes 1 month free support. Monthly maintenance packages after.
@@ -212,14 +212,14 @@ HOW WE WORK (4 STEPS)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 HANDOFF RULES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Trigger handoff [HANDOFF:telegram] or [HANDOFF:whatsapp] when:
+Trigger handoff [HANDOFF:telegram] or [HANDOFF:phone] when:
 - User explicitly asks for a human / real person
 - User is frustrated or repeating the same question
 - Question is outside the knowledge base
 - Technical/legal/financial questions needing expert judgment
 
 FALLBACK MESSAGE (use ONLY if truly stuck):
-"Hmm, that one's a bit outside what I know off the top of my head! But the team at SY Tech can definitely answer this for you — just message them on Telegram [@SineJhon](https://t.me/SineJhon) or WhatsApp [+251 93 691 3118](https://wa.me/251936913118). They usually respond within 24 hours. Want me to help with anything else?"`;
+"Hmm, that one's a bit outside what I know off the top of my head! But the team at SY Tech can definitely answer this for you — just message them on Telegram [@SineJhon](https://t.me/SineJhon) or call [+251 93 691 3118](tel:+251936913118). They usually respond within 24 hours. Want me to help with anything else?"`;
 
 // ─── ENHANCED LOCAL QA DATABASE (100+ entry points) ───
 export interface EnhancedQAPair {
@@ -452,7 +452,7 @@ export const ENHANCED_QA_DATABASE: EnhancedQAPair[] = [
   },
   {
     keywords: ['trust', 'legit', 'real', 'scam', 'proof', 'credibility', 'authentic', 'genuine', 'reliable'],
-    answer: "100% real and local! SY Tech Solutions is based in Arba Minch, Ethiopia. You can message us directly on Telegram @SineJhon or WhatsApp +251 93 691 3118, check our portfolio at sytech.solutions, and see real client work. We're not going anywhere!",
+    answer: "100% real and local! SY Tech Solutions is based in Arba Minch, Ethiopia. You can message us directly on Telegram @SineJhon or call +251 93 691 3118, check our portfolio at sytech.solutions, and see real client work. We're not going anywhere!",
     priority: 3
   },
   {
@@ -594,8 +594,8 @@ export const ENHANCED_QA_DATABASE: EnhancedQAPair[] = [
   // CONTACT & HUMAN HANDOFF
   // ════════════════════════════════════════════
   {
-    keywords: ['contact', 'reach', 'phone', 'email', 'telegram', 'whatsapp', 'get in touch', 'message'],
-    answer: "You can reach us on Telegram @SineJhon, WhatsApp +251 93 691 3118, or email sytechsolutions.et@gmail.com. We usually respond within 24 hours — often much faster!",
+    keywords: ['contact', 'reach', 'phone', 'email', 'telegram', 'get in touch', 'message'],
+    answer: "You can reach us on Telegram @SineJhon, Phone +251 93 691 3118, or email sytechsolutions.et@gmail.com. We usually respond within 24 hours — often much faster!",
     action: 'NAVIGATE:#contact',
     priority: 2
   },
@@ -607,7 +607,7 @@ export const ENHANCED_QA_DATABASE: EnhancedQAPair[] = [
   },
   {
     keywords: ['speak with founder', 'owner', 'sine', 'sinejhon', 'jhon', 'boss', 'manager'],
-    answer: "You can reach SineJhon directly on Telegram @SineJhon or WhatsApp +251 93 691 3118!",
+    answer: "You can reach SineJhon directly on Telegram @SineJhon or call +251 93 691 3118!",
     action: 'HANDOFF:telegram',
     priority: 3
   },
@@ -781,7 +781,7 @@ export const ENHANCED_QA_DATABASE: EnhancedQAPair[] = [
   },
   {
     keywords: ['እምነት', 'ማመን', 'እውነት', 'ማስረጃ', 'አስተማማኝ'],
-    answer: "We are a real, registered company based in Arba Minch, Ethiopia! You can contact us on Telegram @SineJhon, WhatsApp +251 93 691 3118, or visit sytech.solutions to see our work.",
+    answer: "We are a real, registered company based in Arba Minch, Ethiopia! You can contact us on Telegram @SineJhon, Phone +251 93 691 3118, or visit sytech.solutions to see our work.",
     priority: 3
   },
   {
@@ -824,7 +824,7 @@ export const INTENT_CLASSIFIERS = [
   },
   {
     // User providing contact info
-    pattern: /(?:my (?:email|phone|number|telegram|whatsapp)\s+(?:is|:)?\s*[\w@.+\-]+)/i,
+    pattern: /(?:my (?:email|phone|number|telegram)\s+(?:is|:)?\s*[\w@.+\-]+)/i,
     category: 'contact_info',
     response: () => `Thanks for sharing! The team will reach out to you soon. In the meantime, is there anything specific about our services you'd like to know?`
   },

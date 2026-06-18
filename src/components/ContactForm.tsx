@@ -161,7 +161,7 @@ export function ContactForm({ open, onOpenChange, prefill }: ContactFormProps) {
         <DialogHeader>
           <DialogTitle>Start a Project</DialogTitle>
           <DialogDescription>
-            Tell us about your project. We'll respond within 24 hours on Telegram or WhatsApp.
+            Tell us about your project. We'll respond within 24 hours on Telegram or Phone.
           </DialogDescription>
         </DialogHeader>
 
@@ -176,7 +176,7 @@ export function ContactForm({ open, onOpenChange, prefill }: ContactFormProps) {
               <CheckCircle2 className="w-12 h-12 text-emerald" />
               <h3 className="text-xl text-text-primary font-semibold">Message Sent!</h3>
               <p className="text-text-secondary text-sm">
-                We'll reach out on Telegram or WhatsApp within a few hours.
+                We'll reach out on Telegram or Phone within a few hours.
               </p>
             </motion.div>
           ) : (

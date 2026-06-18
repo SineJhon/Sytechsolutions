@@ -55,13 +55,11 @@ export default function CTASection() {
             </button>
 
             <a
-              href="https://wa.me/251936913118"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="tel:+251936913118"
               className="h-[50px] px-8 rounded-full border-2 border-white/25 text-white/90 text-[15px] font-medium inline-flex items-center gap-2 hover:border-white/50 hover:text-white transition-all duration-300 glass-light"
             >
               <MessageCircle className="w-4 h-4" />
-              Chat on WhatsApp
+              Call Us
             </a>
           </motion.div>
         </div>
