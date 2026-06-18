@@ -6,7 +6,6 @@ import { z } from 'zod'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CheckCircle2, Loader2, Send } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-import { Toast } from '@/components/ui/toast'
 
 const schema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -81,7 +80,6 @@ export function ContactForm({ open, onOpenChange, prefill }: ContactFormProps) {
   const [error, setError] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedType, setSelectedType] = useState('')
-  const [toastOpen, setToastOpen] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
   const prevOpenRef = useRef(false)
 
@@ -149,7 +147,6 @@ export function ContactForm({ open, onOpenChange, prefill }: ContactFormProps) {
       })
       if (response.ok) {
         setSubmitted(true)
-        setToastOpen(true)
       } else {
         setError('Failed to send. Please contact us on Telegram directly.')
       }
@@ -301,13 +298,6 @@ export function ContactForm({ open, onOpenChange, prefill }: ContactFormProps) {
           )}
         </AnimatePresence>
       </DialogContent>
-      <Toast
-        open={toastOpen}
-        onClose={() => setToastOpen(false)}
-        title="Message Sent Successfully!"
-        description="We've received your message and will get back to you within 24 hours on Telegram or WhatsApp."
-        duration={6000}
-      />
     </Dialog>
   )
 }

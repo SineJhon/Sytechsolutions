@@ -97,7 +97,7 @@ function SuggestedQuestions({ onSelect }: { onSelect: (q: string) => void }) {
 }
 
 // ─── Voice Button ───
-function VoiceButton({ onResult }: { onResult: (text: string) => void }) {
+function VoiceButton({ onSend }: { onSend: (text: string) => void }) {
   const [isListening, setIsListening] = useState(false)
   const recognitionRef = useRef<any>(null)
 
@@ -108,17 +108,19 @@ function VoiceButton({ onResult }: { onResult: (text: string) => void }) {
     const recognition = new SpeechRecognition()
     recognition.lang = 'en-US'
     recognition.continuous = false
-    recognition.interimResults = true
+    recognition.interimResults = false
     recognitionRef.current = recognition
     recognition.onstart = () => setIsListening(true)
     recognition.onend = () => setIsListening(false)
     recognition.onerror = () => setIsListening(false)
     recognition.onresult = (event: any) => {
       const transcript = Array.from(event.results).map((r: any) => r[0].transcript).join('')
-      onResult(transcript)
+      if (transcript.trim()) {
+        onSend(transcript.trim())
+      }
     }
     recognition.start()
-  }, [isListening, onResult])
+  }, [isListening, onSend])
 
   useEffect(() => { return () => { if (recognitionRef.current) recognitionRef.current.stop() } }, [])
 
@@ -189,7 +191,7 @@ export default function AiAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed z-50 bottom-0 left-0 right-0 h-[85vh] rounded-t-[20px] md:bottom-24 md:left-6 md:right-auto md:h-[520px] md:w-[380px] md:rounded-[20px] bg-[var(--color-card)]/97 backdrop-blur-2xl border border-[var(--color-border-light)] shadow-[0_-10px_40px_rgba(0,0,0,0.4)] md:shadow-[0_20px_60px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden"
+            className="fixed z-50 bottom-0 left-0 right-0 h-[85vh] rounded-t-[20px] md:bottom-24 md:left-auto md:right-6 md:h-[520px] md:w-[380px] md:rounded-[20px] bg-[var(--color-card)]/97 backdrop-blur-2xl border border-[var(--color-border-light)] shadow-[0_-10px_40px_rgba(0,0,0,0.4)] md:shadow-[0_20px_60px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden"
             onWheel={(e) => e.stopPropagation()}
             onTouchMove={(e) => e.stopPropagation()}
           >
@@ -250,7 +252,7 @@ export default function AiAssistant() {
                   style={{ minHeight: '40px', maxHeight: '100px' }}
                   onInput={(e) => { const t = e.target as HTMLTextAreaElement; t.style.height = 'auto'; t.style.height = Math.min(t.scrollHeight, 100) + 'px' }}
                 />
-                <VoiceButton onResult={setInputValue} />
+                <VoiceButton onSend={sendMessage} />
                 <button
                   onClick={() => sendMessage(inputValue)}
                   disabled={!inputValue.trim() || isLoading}
