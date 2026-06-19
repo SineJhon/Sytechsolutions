@@ -26,11 +26,13 @@ const DialogContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => {
   React.useEffect(() => {
     // Lock body scroll when dialog is open
-    const originalStyle = window.getComputedStyle(document.body).overflow
     document.body.style.overflow = 'hidden'
     
     return () => {
-      document.body.style.overflow = originalStyle
+      // Remove the inline overflow (which locked both axes)
+      document.body.style.overflow = ''
+      // Re-apply the CSS overflow-x: hidden rule that's on body
+      document.body.style.overflowX = 'hidden'
     }
   }, [])
 

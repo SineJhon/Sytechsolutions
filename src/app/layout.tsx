@@ -48,15 +48,17 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="antialiased">
-        <SmoothScroll>
-          <CustomCursor />
-          {children}
-          <FloatingContact
-            telegramUsername={process.env.NEXT_PUBLIC_TELEGRAM_USERNAME!}
-            phoneNumber={process.env.NEXT_PUBLIC_PHONE_NUMBER!}
-          />
-          <AiAssistant />
-        </SmoothScroll>
+        <div className="scroll-wrapper">
+          <SmoothScroll>
+            <CustomCursor />
+            {children}
+            <FloatingContact
+              telegramUsername={process.env.NEXT_PUBLIC_TELEGRAM_USERNAME!}
+              phoneNumber={process.env.NEXT_PUBLIC_PHONE_NUMBER!}
+            />
+            <AiAssistant />
+          </SmoothScroll>
+        </div>
         <Analytics />
         <SpeedInsights />
       </body>

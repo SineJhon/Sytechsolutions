@@ -108,8 +108,13 @@ body {
   background: var(--color-deep-base);
   color: var(--color-text-primary);
   font-family: var(--font-jakarta), Inter, system-ui;
-  overflow-x: hidden;
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Wrapper to clip horizontal overflow — avoids breaking body scrolling on mobile */
+.scroll-wrapper {
+  overflow-x: hidden;
+  min-height: 100dvh;
 }
 
 /* === SCROLLBAR === */

@@ -79,6 +79,7 @@ export default function Portfolio() {
                           className="w-[150%] h-[150%] border-0 origin-top-left scale-[0.667] pointer-events-none"
                           loading="lazy"
                           sandbox="allow-scripts allow-same-origin"
+                          style={{ touchAction: 'none' }}
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">
