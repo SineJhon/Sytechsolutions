@@ -192,8 +192,6 @@ export default function AiAssistant() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             className="fixed z-50 bottom-0 left-0 right-0 h-[85vh] rounded-t-[20px] md:bottom-24 md:left-auto md:right-6 md:h-[520px] md:w-[380px] md:rounded-[20px] bg-[var(--color-card)]/97 backdrop-blur-2xl border border-[var(--color-border-light)] shadow-[0_-10px_40px_rgba(0,0,0,0.4)] md:shadow-[0_20px_60px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden"
-            onWheel={(e) => e.stopPropagation()}
-            onTouchMove={(e) => e.stopPropagation()}
           >
             {/* Header */}
             <div className="h-14 px-4 flex items-center justify-between border-b border-[var(--color-border-light)] flex-shrink-0">
@@ -218,7 +216,6 @@ export default function AiAssistant() {
             <div
               className="flex-1 overflow-y-auto py-4 space-y-3"
               style={{ scrollbarWidth: 'thin', overscrollBehavior: 'contain' }}
-              onWheel={(e) => e.stopPropagation()}
             >
               {showWelcome && (
                 <div className="px-4 mb-2">

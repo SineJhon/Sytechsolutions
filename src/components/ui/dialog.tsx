@@ -25,8 +25,10 @@ const DialogContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
 >(({ className, children, ...props }, ref) => {
   React.useEffect(() => {
+    // Lock body scroll when dialog is open
     const originalStyle = window.getComputedStyle(document.body).overflow
     document.body.style.overflow = 'hidden'
+    
     return () => {
       document.body.style.overflow = originalStyle
     }
@@ -38,8 +40,6 @@ const DialogContent = React.forwardRef<
       <DialogPrimitive.Content
         ref={ref}
         className={`fixed left-[50%] top-[50%] z-50 w-full max-w-[540px] translate-x-[-50%] translate-y-[-50%] rounded-2xl glass-strong p-8 shadow-[0_20px_60px_rgba(0,0,0,0.5)] animate-scale-in max-h-[90vh] overflow-y-auto overscroll-contain ${className || ''}`}
-        onWheel={(e) => e.stopPropagation()}
-        onTouchMove={(e) => e.stopPropagation()}
         {...props}
       >
         <div className="min-h-0">
