@@ -111,9 +111,18 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
+html,
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Wrapper to clip horizontal overflow — avoids breaking body scrolling on mobile */
 .scroll-wrapper {
   overflow-x: hidden;
+  overflow-y: visible;
   min-height: 100dvh;
 }
 
